@@ -16,5 +16,7 @@ public class Hello {
         System.out.println("Another edit");
     }
 
-	public void methodC() { }
+	public void methodC() { 
+		System.out.println("Kien is a poo poo");
+	}
 }
