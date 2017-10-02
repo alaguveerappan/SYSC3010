@@ -13,6 +13,7 @@ public class Hello {
 
 	public void methodB(void) {
             System.out.println("Kien edited this file");
+            System.out.println("Another edit");
         }
 
 	public void methodC(void) { }
