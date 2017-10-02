@@ -1,7 +1,7 @@
 
 public class Hello {
 
-	public static main(String[] args) 
+	public static void main(String[] args) 
 	{
 		Hello hello = new Hello();
 		hello.methodA();
@@ -9,12 +9,12 @@ public class Hello {
 		hello.methodC();
 	}
 
-	public void methodA(void) { }
+	public void methodA() { }
 
-	public void methodB(void) {
-            System.out.println("Kien edited this file");
-            System.out.println("Another edit");
-        }
+	public void methodB() {
+        System.out.println("Kien edited this file");
+        System.out.println("Another edit");
+    }
 
-	public void methodC(void) { }
+	public void methodC() { }
 }
