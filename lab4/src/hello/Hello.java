@@ -9,9 +9,11 @@ public class Hello {
 		hello.methodC();
 	}
 
-	public void methodA(void ) { }
+	public void methodA(void) { }
 
-	public void methodB(void) { }
+	public void methodB(void) {
+            System.out.println("Kien edited this file");
+        }
 
 	public void methodC(void) { }
 }
