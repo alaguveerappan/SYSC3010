@@ -5,5 +5,5 @@ RPI's and Arduino's
 
 ### Prerequisites
 
-* Linux: Install 'mongodb'
+* Linux: Install `mongodb`
 
