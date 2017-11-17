@@ -4,6 +4,7 @@ from gpiozero import MotionSensor
 from datetime import datetime
 import datetime
 import RPi.GPIO as GPIO
+import os
 
 """instantiate the picamera and rotate the camera in the angle needed so the
 picture is straight while the camera takes a picture depending on how the
@@ -56,7 +57,9 @@ def capturePic():
     before capturing and saving the picture on the sdCard."""
     camera.start_preview(alpha=200)
     sleep(5)
-    camera.capture('/home/pi/Desktop/camera/' + timestamp() + '.jpg')
+    name = timestamp()
+    camera.capture('/home/pi/Desktop/camera/' + name + '.jpg')
+    savePic(name + '.jpg')
     camera.stop_preview()
     return;
 
@@ -67,6 +70,11 @@ def recordVid():
     sleep(5)
     camera.stop_recording()
     camera.stop_preview()
+    return;
+
+def savePic(filename):
+    os.chdir("/home/pi/Desktop/TCP/")
+    os.system("java ClientCameraTest " + filename)
     return;
 
 if __name__ == "__main__":
