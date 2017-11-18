@@ -19,13 +19,17 @@ public class Database {
 		
 		Date date = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd HH:mm");
-		Document doc2 = new Document("Date", ft.format(date));
+		Document doc2 = new Document("Date", ft.format(date))
+				.append("entry", false);
 		historyCollect.insertOne(doc2);
 		
 		FindIterable<Document> doc3 = historyCollect.find();
 		for (Document doc4 : doc3) {
 			if (doc4.get("Date") != null) {
 				System.out.println(doc4.get("Date"));
+			}
+			if (doc4.get("entry") != null) {
+				System.out.println("Entry permitted: " + doc4.get("entry"));
 			}
 		}
 		
