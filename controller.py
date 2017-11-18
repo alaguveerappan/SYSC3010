@@ -9,7 +9,7 @@ from camera import camera
 from led import led
 
 sock = socket.socket()
-sock.bind(('', 5054))
+sock.bind(('', 5055))
     
 """ Main """
 def main():
@@ -22,10 +22,10 @@ def main():
     placeholder = True
     while True:
         #wait for motion then turn on led and take a picture
-        print(ms.detect())
         if (ms.detect()):
             timeOut = datetime.datetime.now() + datetime.timedelta(seconds = 6)
             l.power(1)
+            print("in")
             pics = picpic()
             if (pics):
                 name = timestamp()
