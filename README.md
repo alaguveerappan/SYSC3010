@@ -15,4 +15,5 @@ Keith Ko
 ### Prerequisites
 
 * Linux: Install `mongodb`
+* Java: Install `java-sdk8`
 
