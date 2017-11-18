@@ -1,16 +1,14 @@
 import serial
 import time
 import socket
+import os
 
-ser = serial.Serial("/dev/ttyACM1", 9600)
+ser = serial.Serial("/dev/ttyACM0", 9600)
 pin = 1234
 count = 0
 
 s = socket.socket()
-host = '192.168.43.37'
-port = 5050
-
-s.connect((host, port))
+s.connect(('192.168.43.37', 5054))
 
 while True:
     read_ser =  int(ser.readline())
@@ -27,8 +25,10 @@ while True:
         if(count >= 1):
             ser.write('5'.encode())
             count = 0
-
+            
             s.send(b'1')
+            os.chdir("/home/pi/Desktop/tcp")
+            os.system("java Server localhost")
 
     print(count)
 
