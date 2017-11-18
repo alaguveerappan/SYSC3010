@@ -1,7 +1,7 @@
 import serial
 import time
 
-ser = serial.Serial("/dev/ttyACM1", 9600)
+ser = serial.Serial("/dev/ttyACM2", 9600)
 pin = 1234
 count = 0
 
@@ -17,10 +17,8 @@ while True:
         ser.write('0'.encode())
         count += 1
         
-        if(count >= 5):
+        if(count >= 2):
             ser.write('5'.encode())
             count = 0
 
     print(count)
-
-aalaaagaua
