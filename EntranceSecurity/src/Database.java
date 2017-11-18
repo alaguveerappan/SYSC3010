@@ -20,7 +20,6 @@ public class Database {
 		
 		Date date = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd HH:mm");
-		//System.out.println(ft.format(date));
 		Document doc2 = new Document("Date", ft.format(date));
 		historyCollect.insertOne(doc2);
 		
