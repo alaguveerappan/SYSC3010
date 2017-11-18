@@ -19,17 +19,20 @@ public class Database {
 		
 		Date date = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd HH:mm");
-		Document doc2 = new Document("date", ft.format(date))
+		Document entryDoc = new Document("date", ft.format(date))
 				.append("entry", false);
-		historyCollect.insertOne(doc2);
+		historyCollect.insertOne(entryDoc);
 		
-		FindIterable<Document> doc3 = historyCollect.find();
-		for (Document doc4 : doc3) {
-			if (doc4.get("date") != null) {
-				System.out.println(doc4.get("date"));
+		FindIterable<Document> historyJson = historyCollect.find();
+		for (Document historyDoc : historyJson) {
+			if (historyDoc.get("date") != null) {
+				System.out.println(historyDoc.get("date"));
 			}
-			if (doc4.get("entry") != null) {
-				System.out.println("Entry permitted: " + doc4.get("entry"));
+			if (historyDoc.get("entry") != null) {
+				System.out.println("Entry permitted: " + historyDoc.get("entry"));
+			}
+			if (historyDoc.get("name") != null) {
+				System.out.println(historyDoc.get("name"));
 			}
 		}
 		
