@@ -12,8 +12,7 @@ public class Database {
 		MongoClient mongoClient = new MongoClient();
 		MongoDatabase db = mongoClient.getDatabase("security");
 		MongoCollection<Document> historyCollect = db.getCollection("history");
-		MongoIterable<String> strings = mongoClient.listDatabaseNames();
-		MongoCursor<String> iterator = strings.iterator();
+		
 		Document doc = new Document("Date", "Monday")
 				.append("name", "kien");
 		historyCollect.insertOne(doc);
