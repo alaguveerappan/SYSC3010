@@ -17,7 +17,6 @@ class camera:
         sleep(5)
         cc.capture('/home/pi/Desktop/camera/' + name + '.jpg')
         cc.stop_preview()
-        return;
     
     """ Take a Picture after 5 sec. (camera needs atleast 2 sec before taking
         a picture to get a clear photo)"""
