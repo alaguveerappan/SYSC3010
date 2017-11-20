@@ -34,12 +34,15 @@ def main():
 
 def signal(detect):
     if (detect):
-        sock.listen(1)
-        data, addr = sock.accept()
-        received_data = data.recv(1024)
-        print(received_data)
-        return(received_data == '1');
+        data_r = received_data()
+        return (dat_r == '1');
     return False;
+
+def received_data():
+    sock.listen(1)
+    data, addr = sock.accept()
+    received_data = data.recv(1024)
+    return received_data;
     
 """ Creating timestamp so name of the pic is unique use ("%Y-%m-%d_%H:%M:%S")"""
 def timestamp():
