@@ -17,8 +17,7 @@ class controller:
 
     def takePic(self, name, detect, signal):
         if (detect and signal):
-            c.capturePic(name)
-            return True;
+            return (c.capturePic(name))
         return False;
 
     def light(self, switch):

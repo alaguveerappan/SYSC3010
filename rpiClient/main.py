@@ -4,19 +4,12 @@ import datetime
 import os
 import socket
 from controller import controller
-import unittest
-
-class Test(unittest.Testcase):
-    def test_received_data(self):
-        data = received_data()
-        self.assertEqual(data, "1")
 
 sock = socket.socket()
 sock.bind(('', 5059))
 
 """ Main """
 def main():
-    unittest.main()
     c = controller()
 
     timeOut = datetime.datetime.now() + datetime.timedelta(seconds = 6)
