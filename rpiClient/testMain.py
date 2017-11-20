@@ -4,7 +4,7 @@ import socket
 
 class MyTest(unittest.TestCase):
     def test_received_data(self):        
-        self.assertEqual(received_data, "1")
+        self.assertEqual(received_data, "Test Message")
 
 sock = socket.socket()
 sock.bind(('', 5556))
