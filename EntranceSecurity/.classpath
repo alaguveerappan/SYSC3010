@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/home/kien/git/SYSC3010/EntranceSecurity/external libraries/java-json.jar"/>
 	<classpathentry kind="lib" path="/home/kien/git/SYSC3010/EntranceSecurity/external libraries/mongo-java-driver-3.5.0.jar"/>
+	<classpathentry kind="lib" path="/home/kien/git/SYSC3010/EntranceSecurity/external libraries/gson-2.8.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -4,17 +4,24 @@ import datetime
 import os
 import socket
 from controller import controller
+import unittest
+
+class Test(unittest.Testcase):
+    def test_received_data(self):
+        data = received_data()
+        self.assertEqual(data, "1")
 
 sock = socket.socket()
 sock.bind(('', 5059))
-    
+
 """ Main """
 def main():
+    unittest.main()
     c = controller()
-    
+
     timeOut = datetime.datetime.now() + datetime.timedelta(seconds = 6)
     placeholder = True
-    
+
     while True:
         c.light(0)
         #wait for motion then turn on led and take a picture
@@ -22,12 +29,12 @@ def main():
         if (detect_ms):
             timeOut = datetime.datetime.now() + datetime.timedelta(seconds = 6)
             c.light(1)
-            
+
         sig = signal(detect_ms)
         name = timestamp()
         pic = c.takePic(name, detect_ms, sig)
         sendPic(name, pic)
-        
+
         if(datetime.datetime.now() > timeOut):
             c.light(0)
     return;
@@ -35,7 +42,7 @@ def main():
 def signal(detect):
     if (detect):
         data_r = received_data()
-        return (dat_r == '1');
+        return (data_r == '1');
     return False;
 
 def received_data():
@@ -43,7 +50,7 @@ def received_data():
     data, addr = sock.accept()
     received_data = data.recv(1024)
     return received_data;
-    
+
 """ Creating timestamp so name of the pic is unique use ("%Y-%m-%d_%H:%M:%S")"""
 def timestamp():
     timestamp = datetime.datetime.now().strftime("%H:%M:%S")
