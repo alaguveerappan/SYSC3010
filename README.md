@@ -9,8 +9,8 @@ Keith Ko
 ## Development
 - [] Server
 - [] Client
-- [] Continuous File Transfer
-- [] Server chooses when to take the picture
+- [x] Continuous File Transfer
+- [x] Server chooses when to take the picture
 
 ### Prerequisites
 
