@@ -7,10 +7,12 @@ Kien Ha
 Keith Ko
 
 ## Development
-- [] Server
-- [] Client
 - [x] Continuous File Transfer
 - [x] Server chooses when to take the picture
+- [] Server
+- [] Client
+- [] Integrating the database with existing components
+- [] Android App
 
 ### Prerequisites
 
