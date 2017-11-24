@@ -51,8 +51,8 @@ def timestamp():
 
 def sendPic(filename, send):
     if (send):
-        os.chdir("/home/pi/Desktop/TCP/")
-        os.system("java ClientCameraTest " + filename + ".jpg")
+        os.chdir("/home/pi/Documents/SYSC3010SYSC3010/rpiClient/")
+        os.system("java tcpClient " + filename + ".jpg")
     return;
 
 if __name__ == "__main__":

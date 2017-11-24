@@ -6,8 +6,8 @@ public class tcpClient {
 	private Socket socket = null;
 	private boolean connection = false;
 	
-	private String clientPath = "/home/aveerappan/Desktop/";
-	private String serverPath = "/home/aveerappan/Desktop/test/";
+	private String clientPath = "/home/pi/Desktop/camera/";
+	private String serverPath = "/home/pi/Desktop/camera/";
 	
 	private FileEvent fileEvent = null;
 	private ObjectOutputStream outStream = null;

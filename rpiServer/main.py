@@ -37,8 +37,8 @@ def send_data(ip, port):
     return;
 
 def receive_pic():
-    os.chdir("/home/pi/Desktop/tcp")
-    os.system("java Server localhost")
+    os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/rpiServer/")
+    os.system("java tcpServer ")
     return;
 
 if "__name__" == "__main__":
