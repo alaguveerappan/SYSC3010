@@ -13,6 +13,7 @@ Keith Ko
 - [] Client
 - [] Integrating the database with existing components
 - [] Android App
+- [] Comments :P
 
 ### Prerequisites
 
