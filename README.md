@@ -1,13 +1,13 @@
-#SYSC3010 Project
+# SYSC3010 Project
 Entrance Security System with RPI's and Arduino's
 
-#Group Members:	
+## Group Members:	
 - Alagu Paramesh Veerappan
 - Carmen Ho
 - Kien Ha
 - Keith Ko
 
-## Development
+### Development
 - [x] Continuous File Transfer
 - [x] Server chooses when to take the picture
 - [x] Server
@@ -16,7 +16,7 @@ Entrance Security System with RPI's and Arduino's
 - [] Android App
 - [] Comments :P
 
-### Prerequisites
+#### Prerequisites
 
 * Linux: Install `mongodb`
 * Java: Install `java-sdk8`
