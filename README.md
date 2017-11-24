@@ -25,11 +25,11 @@ Entrance Security System with RPI's and Arduino's
 Raspberry Pi Camera
 
 * To test taking a picture
-raspistill -o name.jpg
+`raspistill -o name.jpg`
 
 * To view picture from terminal
-gpicview name.jpg
+`gpicview name.jpg`
 
 * To play video from terminal
-omxplayer name.h264
+`omxplayer name.h264`
 
