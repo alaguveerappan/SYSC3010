@@ -9,8 +9,8 @@ Keith Ko
 ## Development
 - [x] Continuous File Transfer
 - [x] Server chooses when to take the picture
-- [] Server
-- [] Client
+- [x] Server
+- [x] Client
 - [] Integrating the database with existing components
 - [] Android App
 - [] Comments :P
