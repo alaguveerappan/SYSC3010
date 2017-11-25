@@ -22,6 +22,10 @@ Entrance Security System with RPI's and Arduino's
 * Java: Install `java-sdk8`
 
 ## Troubleshooting
+### Raspberry Pi Server
+`run main.py from rpiClient first`
+`run main.py from rpiServer afterwards`
+
 ### Raspberry Pi Camera
 
 * To test taking a picture
@@ -34,3 +38,6 @@ Entrance Security System with RPI's and Arduino's
 `omxplayer name.h264`
 
 ### Arduino
+* To use the Arduino every time it is connected to the RPi
+`run /dev/tty*`
+`change the x in ACMx in main.py of rpiServer`
