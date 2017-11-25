@@ -33,3 +33,4 @@ Entrance Security System with RPI's and Arduino's
 * To play video from terminal
 `omxplayer name.h264`
 
+### Arduino
