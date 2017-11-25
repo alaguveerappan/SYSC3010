@@ -22,7 +22,7 @@ Entrance Security System with RPI's and Arduino's
 * Java: Install `java-sdk8`
 
 ## Troubleshooting
-Raspberry Pi Camera
+### Raspberry Pi Camera
 
 * To test taking a picture
 `raspistill -o name.jpg`
