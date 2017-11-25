@@ -41,7 +41,7 @@ public class AddUserActivity extends AppCompatActivity {
 
     public void addUser(View view){
         //creating a mongo client
-        MongoClient mongo = new MongoClient( "192.168.0.131" , 27017 );
+        MongoClient mongo = new MongoClient( "172.17.133.195" , 27017 );
         //Create Database
         MongoDatabase database = mongo.getDatabase("myDb");
         //create collection
