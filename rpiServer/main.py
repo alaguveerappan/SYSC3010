@@ -41,7 +41,7 @@ def main():
         if(count >= 5):
             ser.write('5'.encode())
             count = 0
-            send_data('192.168.43.37', 5059)
+            send_data('192.168.43.37', 5060)
             receive_pic()
 
         print(count)
@@ -55,7 +55,7 @@ def send_data(ip, port):
 
 def receive_pic():
     os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/rpiServer/")
-    os.system("java tcpServer ")
+    os.system("java tcpServer localhost")
     return;
 
 if __name__ == "__main__":
