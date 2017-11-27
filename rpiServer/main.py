@@ -1,5 +1,5 @@
-# formerly "testArduinoSend5.py"
-
+from pymongo import MongoClient
+import pprint
 import serial
 import time
 import socket
@@ -9,24 +9,38 @@ ser = serial.Serial("/dev/ttyACM0", 9600)
 pin = 1234
 count = 0
 
+client = MongoClient('localhost', 27017)
+db = client['security']
+collection = db['pin']
+
 def main():
+    wrongPin = True
     while True:
         read_ser =  int(ser.readline())
         print(read_ser)
 
-        if read_ser == pin:
+        getPin = collection.find({})
+        
+        for pin in getPin:
+            if read_ser == int(pin['pin'])
+                wrongPin = False
+                break
+            
+            else:
+                wrongPin = True
+                
+        if(wrongPin && count < 5):
+            ser.write('0'.encode())
+            count += 1
+        else
             ser.write('1'.encode())
             count = 0
             
-        else:
-            ser.write('0'.encode())
-            count += 1
-            
-            if(count >= 1):
-                ser.write('5'.encode())
-                count = 0
-                send_data('192.168.43.37', 5055)
-                receive_pic()
+        if(count >= 5):
+            ser.write('5'.encode())
+            count = 0
+            send_data('192.168.43.37', 5055)
+            receive_pic()
 
         print(count)
 
