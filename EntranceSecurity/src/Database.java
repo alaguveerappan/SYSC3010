@@ -31,7 +31,8 @@ public class Database {
 		FindIterable<Document> historyJson = historyCollect.find();
 		for (Document historyDoc : historyJson) {
 			if (historyDoc.get("date") != null) {
-				System.out.println(historyDoc.get("date"));
+				
+			if (historyDoc.get("date") != null) {System.out.println(historyDoc.get("date"));
 			}
 			if (historyDoc.get("entry") != null) {
 				System.out.println("Entry permitted: " + historyDoc.get("entry"));
@@ -52,7 +53,6 @@ public class Database {
 			}
 		}
 		
-		//db.drop();
 		mongoClient.close();
 	}
 }
