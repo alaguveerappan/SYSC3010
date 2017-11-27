@@ -12,7 +12,7 @@ public class tcpServer {
 	private ObjectInputStream inStream = null;
 	private FileOutputStream outStream = null;
 	
-	private int port = 5050;
+	private int port = 4051;
 
 	public tcpServer() {
 
