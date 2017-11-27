@@ -12,7 +12,7 @@ public class tcpClient {
 	private FileEvent fileEvent = null;
 	private ObjectOutputStream outStream = null;
 	
-	private String address = "localhost";
+	private String address = "192.168.43.200";
 	private int port = 5050;
 
 	public tcpClient(String name) {

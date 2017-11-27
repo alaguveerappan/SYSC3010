@@ -13,14 +13,19 @@ public class Database {
 		MongoDatabase db = mongoClient.getDatabase("security");
 		MongoCollection<Document> historyCollect = db.getCollection("history");
 		
-		Document doc = new Document("date", "Monday")
-				.append("name", "kien");
+		String Day = args[0];
+		String Name = args[1];
+		Boolean Valid = args[2];
+		int Pin = args[3];
+		
+		Document doc = new Document("date", Day)
+				.append("name", Name);
 		historyCollect.insertOne(doc);
 		
 		Date date = new Date();
 		SimpleDateFormat ft = new SimpleDateFormat("yyyy.MM.dd HH:mm");
 		Document entryDoc = new Document("date", ft.format(date))
-				.append("entry", false);
+				.append("entry", Valid);
 		historyCollect.insertOne(entryDoc);
 		
 		FindIterable<Document> historyJson = historyCollect.find();
@@ -37,7 +42,7 @@ public class Database {
 		}
 		
 		MongoCollection<Document> pinCollect = db.getCollection("pin");
-		Document validPin = new Document("pin", 1234);
+		Document validPin = new Document("pin", Pin);
 		pinCollect.insertOne(validPin);
 		
 		FindIterable<Document> doc5 = pinCollect.find();
@@ -47,7 +52,7 @@ public class Database {
 			}
 		}
 		
-		db.drop();
+		//db.drop();
 		mongoClient.close();
 	}
 }

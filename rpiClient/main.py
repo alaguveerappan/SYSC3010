@@ -6,7 +6,7 @@ import socket
 from controller import controller
 
 sock = socket.socket()
-sock.bind(('', 5059))
+sock.bind(('', 5058))
 
 """ Main """
 def main():
@@ -22,7 +22,6 @@ def main():
         if (detect_ms):
             timeOut = datetime.datetime.now() + datetime.timedelta(seconds = 6)
             c.light(1)
-
         sig = signal(detect_ms)
         name = timestamp()
         pic = c.takePic(name, detect_ms, sig)
@@ -51,7 +50,7 @@ def timestamp():
 
 def sendPic(filename, send):
     if (send):
-        os.chdir("/home/pi/Documents/SYSC3010SYSC3010/rpiClient/")
+        os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/rpiClient/")
         os.system("java tcpClient " + filename + ".jpg")
     return;
 
