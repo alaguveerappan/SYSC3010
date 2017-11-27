@@ -15,8 +15,8 @@ public class Database {
 		
 		String Day = args[0];
 		String Name = args[1];
-		Boolean Valid = args[2];
-		int Pin = args[3];
+		String Valid = args[2];
+		String Pin = args[3];
 		
 		Document doc = new Document("date", Day)
 				.append("name", Name);
