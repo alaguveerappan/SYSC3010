@@ -6,7 +6,7 @@ import socket
 from controller import controller
 
 sock = socket.socket()
-sock.bind(('', 5058))
+sock.bind(('', 5060))
 
 """ Main """
 def main():
