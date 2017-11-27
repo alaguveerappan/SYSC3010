@@ -6,43 +6,46 @@ import socket
 import os
 
 ser = serial.Serial("/dev/ttyACM0", 9600)
-pin = 1234
-count = 0
 
-client = MongoClient('localhost', 27017)
-db = client['security']
-collection = db['pin']
 
 def main():
     wrongPin = True
+    count = 0
+    
     while True:
         read_ser =  int(ser.readline())
         print(read_ser)
 
+        client = MongoClient('localhost', 27017)
+        db = client['security']
+        collection = db['pin']
+
         getPin = collection.find({})
         
         for pin in getPin:
-            if read_ser == int(pin['pin'])
+            if read_ser == int(pin['pin']):
                 wrongPin = False
                 break
             
             else:
                 wrongPin = True
                 
-        if(wrongPin && count < 5):
+        if((wrongPin) and count < 5):
             ser.write('0'.encode())
             count += 1
-        else
+        else:
             ser.write('1'.encode())
             count = 0
+            wrongPin = True
             
         if(count >= 5):
             ser.write('5'.encode())
             count = 0
-            send_data('192.168.43.37', 5055)
+            send_data('192.168.43.37', 5059)
             receive_pic()
 
         print(count)
+    return;
 
 def send_data(ip, port):
     s = socket.socket()
@@ -55,6 +58,6 @@ def receive_pic():
     os.system("java tcpServer ")
     return;
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     main()
 
