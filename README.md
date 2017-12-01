@@ -23,7 +23,8 @@ Entrance Security System with RPI's and Arduino's
 
 ## Useful Command
 
-* `java -classpath .:../external\ libraries/java-json.jar:..\external\ libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar Database`
+* `java -classpath .:../external\ libraries/java-json.jar:..\external\ 
+  libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar Database`
 
 
 ## Troubleshooting
