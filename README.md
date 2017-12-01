@@ -21,6 +21,11 @@ Entrance Security System with RPI's and Arduino's
 * Linux: Install `mongodb`
 * Java: Install `java-sdk8`
 
+## Useful Command
+
+* 'java -classpath .:../external\ libraries/java-json.jar:..\external\ libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar Database'
+
+
 ## Troubleshooting
 ### Raspberry Pi Server
 `run main.py from rpiClient first`
