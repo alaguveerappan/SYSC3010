@@ -72,7 +72,7 @@ def get_name(pin):
     getPin = collection.find({})
     
     #loop through all pins to check if pin exists in database and returns name
-	#     associated with that particular pin or returns "null"
+    #     associated with that particular pin or returns "null"
     for PIN in getPin:
         if enteredPin == int(PIN['pin']):
             return PIN['name'];
@@ -85,11 +85,11 @@ def timestamp():
 
 """ Logs the entry to a database """
 def log(name, datetime, valid):
-	# navigate to the appropriate directory to prepare for logging the PIN entry
+    # navigate to the appropriate directory to prepare for logging the PIN entry
     os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/EntranceSecurity/src/")
-	# add a log to the database containing the name associated with 
-	#     the entered PIN, the date and time, and whether or not the PIN
-	#     was valid
+    # add a log to the database containing the name associated with 
+    #     the entered PIN, the date and time, and whether or not the PIN
+    #     was valid
     os.system("java addLogDatabase " + name + " " + datetime + " "+ valid)
     return;
 
@@ -102,17 +102,21 @@ def take_pic(ip, port):
 """ Send data to client indicating if client should take a picture """
 def send_data(ip, port):
     s = socket.socket() 
-    s.connect((ip, port)) # connect to the IP address of the client at the correct port
-    s.send(b'1') # send a '1' to the client to indicate that the client should take a picture
+    try: # try to connect and send the msg if not close application
+        s.connect((ip, port)) # connect to the IP address of the client at the correct port
+        s.send(b'1') # send a '1' to the client to indicate that the client should take a picture
+    except socket.error, msg:
+        print " Connection refused"
+        sys.exit(0)
     return;
 
 """ Receives the pic taken from the client """
 def receive_pic():
-	# navigate to the directory that contains the tcpServer file to prepare
-	#     to receive picture file
+    # navigate to the directory that contains the tcpServer file to prepare
+    #     to receive picture file
     os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/rpiServer/") 
-	# run the tcpServer file on the same network as the client in order to
-	#     receive the file that the client sends
+    # run the tcpServer file on the same network as the client in order to
+    #     receive the file that the client sends
     os.system("java tcpServer localhost")
     return;
 
