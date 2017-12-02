@@ -54,4 +54,4 @@ Entrance Security System with RPI's and Arduino's
 
 ### Database
 * If running `mongod` from the command line does not work, run `sudo
-* systemctl stop mongodb`, then run `mongod` again
+  systemctl stop mongodb`, then run `mongod` again
