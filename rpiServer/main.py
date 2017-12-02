@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from datetime import datetime
+import datetime
 import pprint
 import serial
 import time
@@ -19,9 +20,7 @@ def main():
         read_ser =  int(ser.readline())
         wrongPin = validate_pin(read_ser)
 
-        # gets name if available and logs the informtion to database
-        name = get_name(read_ser)
-        log(name, timestamp(), wrongPin)
+        
 
         #if wrong pin is entered and count less than 5 tell user to return pin
         #     else open door by sending arduino signals
@@ -31,7 +30,10 @@ def main():
         else:
             ser.write('1'.encode()) # send signal to Arduino to open lock
             count = 0 # reset the count of incorrectly entered pins to 0 
-            wrongPin = True
+
+        # gets name if available and logs the informtion to database
+        name = get_name(read_ser)
+        log(name, timestamp(), wrongPin)
 
         #if count is 5 then send client signal to take pic
         if(count >= 5):
@@ -63,9 +65,9 @@ def validate_pin(enteredPin):
 
 """ Takes the pin entered and if it matches with database then returns the
          corresponding name or returns null"""
-def get_name(pin):
+def get_name(enteredPin):
     # port for the database is taken from main arguements
-    client = MongoClient('localhost', sys.argv[5])
+    client = MongoClient('localhost', int(sys.argv[5]))
     db = client['security'] # get the database named "security" 
     collection = db['pin'] # get the collection that contains the pins and users
     # retrieve all documents from collection
@@ -89,8 +91,9 @@ def log(name, datetime, valid):
     os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/EntranceSecurity/src/")
     # add a log to the database containing the name associated with 
     #     the entered PIN, the date and time, and whether or not the PIN
-    #     was valid
-    os.system("java addLogDatabase " + name + " " + datetime + " "+ valid)
+    #     was valid    
+    classpath = "-classpath .:../external\ libraries/java-json.jar:..\external\ libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar"
+    os.system("java " + classpath + " addLogDatabase " + name + " " + datetime + " " + str(not valid))
     return;
 
 """ Send Signal to client and receives pic by calling the send_data and receive_pic defs"""
@@ -117,7 +120,7 @@ def receive_pic():
     os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/rpiServer/") 
     # run the tcpServer file on the same network as the client in order to
     #     receive the file that the client sends
-    os.system("java tcpServer localhost")
+    os.system("java  tcpServer localhost")
     return;
 
 # required for python files with main() 
