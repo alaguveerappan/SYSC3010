@@ -3,6 +3,10 @@ import com.mongodb.client.*;
 
 import org.bson.Document;
 
+/*
+ * Check what users are registered in the Database.
+ */
+
 public class checkUsersDatabase {
 
     public static void main( String args[] ) {
