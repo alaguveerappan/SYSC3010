@@ -1,11 +1,11 @@
+from pymongo import MongoClient
+from datetime import datetime
 import pprint
 import serial
 import time
 import socket
 import os
 import sys
-from pymongo import MongoClient
-from datetime import datetime
 
 ser = serial.Serial("/dev/ttyACM"+str(sys.argv[1]), int(sys.argv[2]))
 
