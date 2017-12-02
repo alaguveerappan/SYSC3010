@@ -20,8 +20,6 @@ def main():
         read_ser =  int(ser.readline())
         wrongPin = validate_pin(read_ser)
 
-        
-
         #if wrong pin is entered and count less than 5 tell user to return pin
         #     else open door by sending arduino signals
         if((wrongPin) and count < 5):
@@ -41,7 +39,7 @@ def main():
             count = 0 # reset the count of incorrectly entered pins to 0 
             # ip address and port of client are taken in from main arguments
             take_pic(str(sys.argv[3]), int(sys.argv[4]))
-            
+        wrongPin = True    
         print(read_ser) # print the entered pin
         print(count) # print the number of times that the pin was entered incorrectly
     return;
@@ -60,8 +58,7 @@ def validate_pin(enteredPin):
     for PIN in getPin:
         if enteredPin == int(PIN['pin']):
             return False;
-        else:
-            return True;
+    return True;
 
 """ Takes the pin entered and if it matches with database then returns the
          corresponding name or returns null"""
