@@ -3,6 +3,10 @@ import com.mongodb.client.*;
 
 import org.bson.Document;
 
+/*
+ * Remove user from database.
+ */
+
 public class removeUserDatabase {
 
 	public static void main( String args[] ) {
