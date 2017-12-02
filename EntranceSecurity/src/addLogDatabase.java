@@ -17,19 +17,19 @@ public class addLogDatabase {
 		String DateTime = args[1];
 		String Valid = args[2];
 
-		Document entryDoc = new Document("name", Name)
-            .append("dateTime", DateTime)
-			.append("entry", Valid);
+		Document entryDoc = new Document("name", Name);
+            	entryDoc.append("dateTime", DateTime);
+		entryDoc.append("entry", Valid);
 		historyCollect.insertOne(entryDoc);
 
 		FindIterable<Document> historyJson = historyCollect.find();
 		for (Document historyDoc : historyJson) {
-            if (historyDoc.get("name") != null) {
+            		if (historyDoc.get("name") != null) {
 				System.out.println(historyDoc.get("name"));
 			}
 
 			if (historyDoc.get("dateTime") != null) {
-                System.out.println(historyDoc.get("dateTime"));
+               			 System.out.println(historyDoc.get("dateTime"));
 			}
 			if (historyDoc.get("entry") != null) {
 				System.out.println("Entry permitted: " + historyDoc.get("entry"));
