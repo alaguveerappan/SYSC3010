@@ -12,8 +12,8 @@ Entrance Security System with RPI's and Arduino's
 - [x] Server chooses when to take the picture
 - [x] Server
 - [x] Client
-- [] Integrating the database with existing components
-- [] Android App
+- [x] Integrating the database with existing components
+- [x] Android App
 - [] Comments :P
 
 ## Prerequisites
@@ -30,6 +30,15 @@ Entrance Security System with RPI's and Arduino's
   libraries/gson-2.8.2.jar:../external\
   libraries/mongo-java-driver-3.5.0.jar Database`
 
+## Running programs
+* For Client Main
+` cd Documents/SYSC3010/SYSC3010/rpiClient
+` python main.py port
+` python main.py 3060
+* For Server Main
+` cd Documents/SYSC3010/SYSC3010/rpiServer
+` python main.py arduinoSerial Baudrate ip_addr port db_port
+` python main.py 0 9600 192.168.43.37 3060 27017
 
 ## Troubleshooting
 ### Raspberry Pi Server
