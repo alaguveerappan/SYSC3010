@@ -51,3 +51,7 @@ Entrance Security System with RPI's and Arduino's
 * To use the Arduino every time it is connected to the RPi
 `run /dev/tty*`
 `change the x in ACMx in main.py of rpiServer`
+
+### Database
+* If running `mongod` from the command line does not work, run `sudo
+* systemctl stop mongodb`, then run `mongod` again
