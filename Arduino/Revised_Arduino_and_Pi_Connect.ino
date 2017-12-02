@@ -139,20 +139,17 @@ boolean keypadVerifyPin(String tempPassword) {
   - send tempPassword
   - receive 1 if correct PIN, 0 if incorrect
   */
-  if(tempPassword.length() == 4){
-	  Serial.println(tempPassword);
-	  
-	  delay(2000);
-	  
-	  if(Serial.read() == '1') {
-	    unlocked = true; 
-	  }
-	  else {
-	    unlocked = false;
-  } else {
-	unlocked = false;
+  
+  Serial.println(tempPassword);
+  
+  delay(2000);
+  
+  if(Serial.read() == '1') {
+    unlocked = true; 
   }
-}
+  else {
+    unlocked = false;
+  }
   
   return unlocked;
 }
@@ -180,6 +177,7 @@ void loop() {
   if (keypadVerifyPin(keypadEnterPin())){
     lcdUnlockedMessage();
     motor -> motorOpenAndClose();
+    //failCount = 0;
   }
   else {
     lcdIncorrectPinMessage();
@@ -187,7 +185,7 @@ void loop() {
     failCount++;
   }
   
-  if (Serial.read() == '5' && failCount == 2) { 
+  if (Serial.read() == '5' && failCount == 5) { 
     lcdTimedOutMessage();
     delay(10000);
     failCount = 0; 
