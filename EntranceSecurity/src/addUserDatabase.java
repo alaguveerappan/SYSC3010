@@ -3,16 +3,30 @@ import com.mongodb.client.*;
 
 import org.bson.Document;
 
+/*
+ * Add new users to the database. Each user has a NAME and PIN
+ * associated with them.
+ */
+
 public class addUserDatabase {
 
     public static void main( String args[] ) {
-        String NAME = args[0];
+        
+	/*
+	 * Argument 1 = User's name
+	 * Argument 2 = User's PIN
+	 */
+	String NAME = args[0];
         String PIN = args[1];
 
         MongoClient mongoClient = new MongoClient();
         MongoDatabase db = mongoClient.getDatabase("security");
 
         MongoCollection<Document> pinCollect = db.getCollection("pin");
+
+	/*
+	 * Create document with pin and name and add it to the database
+	 */
 		Document validPin = new Document("pin", PIN).append("name", NAME);
 		pinCollect.insertOne(validPin);
 
