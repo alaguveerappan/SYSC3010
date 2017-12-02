@@ -27,20 +27,20 @@ public class addUserDatabase {
 	/*
 	 * Create document with pin and name and add it to the database
 	 */
-		Document validPin = new Document("pin", PIN).append("name", NAME);
-		pinCollect.insertOne(validPin);
+	Document validPin = new Document("pin", PIN).append("name", NAME);
+	pinCollect.insertOne(validPin);
 
-		FindIterable<Document> pinIterator = pinCollect.find();
-		for (Document pinDocument : pinIterator) {
-			if (pinDocument.get("pin") != null) {
-				System.out.println(pinDocument.get("pin"));
-			}
-            if (pinDocument.get("name") != null) {
-				System.out.println(pinDocument.get("name"));
-			}
+	FindIterable<Document> pinIterator = pinCollect.find();
+	for (Document pinDocument : pinIterator) {
+		if (pinDocument.get("pin") != null) {
+			System.out.println(pinDocument.get("pin"));
 		}
+        	if (pinDocument.get("name") != null) {
+			System.out.println(pinDocument.get("name"));
+		}
+	}
 
-		mongoClient.close();
+	mongoClient.close();
 
     }
 }
