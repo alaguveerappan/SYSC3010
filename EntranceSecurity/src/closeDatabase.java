@@ -1,9 +1,12 @@
 import com.mongodb.MongoClient;
 import com.mongodb.client.*;
 
+/*
+ * Drop existing collection(s) in database
+ */
+
 public class closeDatabase {
 
-	// Purpose of this file is to close to database.
 	public static void main( String args[] ) { 
 		MongoClient mongoClient = new MongoClient();
 		MongoDatabase db = mongoClient.getDatabase("security");
