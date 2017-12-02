@@ -29,15 +29,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent2);
     }
 
-    /* Called when the user taps the delte user button */
-    public void deleteUser(View view){
-        Intent intent3 = new Intent(this, DeleteUserActivity.class);
-        startActivity(intent3);
-    }
 
-    /* Called when the user taps the Check Sensor button */
-    public void checkSensor(View view){
-        Intent intent4 = new Intent(this, CheckSensorActivity.class);
-        startActivity(intent4);
-    }
+
 }
