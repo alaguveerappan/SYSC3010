@@ -1,35 +1,27 @@
-from pymongo import MongoClient
 import pprint
 import serial
 import time
 import socket
 import os
+import sys
+from pymongo import MongoClient
+from datetime import datetime
 
-ser = serial.Serial("/dev/ttyACM0", 9600)
+ser = serial.Serial("/dev/ttyACM"+str(sys.argv[1]), int(sys.argv[2]))
 
-
+""" acm 0 or 1, baudrate, ip, port, dbport"""
 def main():
     wrongPin = True
     count = 0
     
     while True:
         read_ser =  int(ser.readline())
-        print(read_ser)
-
-        client = MongoClient('localhost', 27017)
-        db = client['security']
-        collection = db['pin']
-
-        getPin = collection.find({})
         
-        for pin in getPin:
-            if read_ser == int(pin['pin']):
-                wrongPin = False
-                break
-            
-            else:
-                wrongPin = True
-                
+        wrongPin = validate_pin(read_ser)
+
+        name = get_name(read_ser)
+        log(name, timestamp(), wrongPin)
+        
         if((wrongPin) and count < 5):
             ser.write('0'.encode())
             count += 1
@@ -37,14 +29,49 @@ def main():
             ser.write('1'.encode())
             count = 0
             wrongPin = True
-            
+        
         if(count >= 5):
             ser.write('5'.encode())
             count = 0
-            send_data('192.168.43.37', 5060)
-            receive_pic()
-
+            take_pic(str(sys.argv[3]), int(sys.argv[4]))
+            
+        print(read_ser)
         print(count)
+    return;
+
+def validate_pin(enteredPin):
+    client = MongoClient('localhost', int(sys.argv[5]))
+    db = client['security']
+    collection = db['pin']
+
+    getPin = collection.find({})
+        
+    for PIN in getPin:
+        if enteredPin == int(PIN['pin']):
+            return False;
+        else:
+            return True;
+
+def get_name(pin):
+    client = MongoClient('localhost', sys.argv[4])
+    db = client['security']
+    collection = db['pin']
+
+    getPin = collection.find({})
+
+    for PIN in getPin:
+        if enteredPin == int(PIN['pin']):
+            return PIN['name'];
+    return "null";
+
+def log(name, datetime, valid):
+    os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/EntranceSecurity/src/")
+    os.system("java addLogDatabase " + name + " " + datetime + " "+ valid)
+    return;
+
+def take_pic(ip, port):
+    send_data(ip, port)
+    receive_pic()
     return;
 
 def send_data(ip, port):
@@ -58,6 +85,9 @@ def receive_pic():
     os.system("java tcpServer localhost")
     return;
 
+def timestamp():
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+    return timestamp;
+
 if __name__ == "__main__":
     main()
-

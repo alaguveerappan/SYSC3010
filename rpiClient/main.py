@@ -1,12 +1,12 @@
-from time import sleep
-from datetime import datetime
 import datetime
 import os
 import socket
+from time import sleep
+from datetime import datetime
 from controller import controller
 
 sock = socket.socket()
-sock.bind(('', 5060))
+sock.bind(('', int(sys.argv[1])))
 
 """ Main """
 def main():
@@ -45,7 +45,7 @@ def received_data():
 
 """ Creating timestamp so name of the pic is unique use ("%Y-%m-%d_%H:%M:%S")"""
 def timestamp():
-    timestamp = datetime.datetime.now().strftime("%H:%M:%S")
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
     return timestamp;
 
 def sendPic(filename, send):
