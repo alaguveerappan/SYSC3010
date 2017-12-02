@@ -11,7 +11,6 @@ public class addUserDatabase {
 
         MongoClient mongoClient = new MongoClient();
         MongoDatabase db = mongoClient.getDatabase("security");
-        MongoCollection<Document> historyCollect = db.getCollection("pin");
 
         MongoCollection<Document> pinCollect = db.getCollection("pin");
 		Document validPin = new Document("pin", PIN).append("name", NAME);
@@ -27,7 +26,6 @@ public class addUserDatabase {
 			}
 		}
 
-        
 		mongoClient.close();
 
     }
