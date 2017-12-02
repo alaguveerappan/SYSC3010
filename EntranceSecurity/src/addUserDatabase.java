@@ -14,16 +14,20 @@ public class addUserDatabase {
         MongoCollection<Document> historyCollect = db.getCollection("pin");
 
         MongoCollection<Document> pinCollect = db.getCollection("pin");
-		Document validPin = new Document(NAME, PIN);
+		Document validPin = new Document("pin", PIN).append("name", NAME);
 		pinCollect.insertOne(validPin);
 
 		FindIterable<Document> pinIterator = pinCollect.find();
 		for (Document pinDocument : pinIterator) {
-			if (pinDocument.get(NAME) != null) {
-				System.out.println(pinDocument.get(NAME));
+			if (pinDocument.get("pin") != null) {
+				System.out.println(pinDocument.get("pin"));
+			}
+            if (pinDocument.get("name") != null) {
+				System.out.println(pinDocument.get("name"));
 			}
 		}
 
+        
 		mongoClient.close();
 
     }
