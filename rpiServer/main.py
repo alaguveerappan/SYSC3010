@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from datetime import datetime
+import datetime
 import pprint
 import serial
 import time
@@ -20,7 +21,6 @@ def main():
         wrongPin = validate_pin(read_ser)
 
         name = get_name(read_ser)
-        log(name, timestamp(), wrongPin)
         
         if((wrongPin) and count < 5):
             ser.write('0'.encode())
@@ -28,7 +28,8 @@ def main():
         else:
             ser.write('1'.encode())
             count = 0
-            wrongPin = True
+            
+        log(name, timestamp(), wrongPin)
         
         if(count >= 5):
             ser.write('5'.encode())
@@ -52,8 +53,8 @@ def validate_pin(enteredPin):
         else:
             return True;
 
-def get_name(pin):
-    client = MongoClient('localhost', sys.argv[4])
+def get_name(enteredPin):
+    client = MongoClient('localhost', int(sys.argv[5]))
     db = client['security']
     collection = db['pin']
 
@@ -61,12 +62,13 @@ def get_name(pin):
 
     for PIN in getPin:
         if enteredPin == int(PIN['pin']):
-            return PIN['name'];
+            return str(PIN['name']);
     return "null";
 
 def log(name, datetime, valid):
     os.chdir("/home/pi/Documents/SYSC3010/SYSC3010/EntranceSecurity/src/")
-    os.system("java addLogDatabase " + name + " " + datetime + " "+ valid)
+    classpath = "-classpath .:../external\ libraries/java-json.jar:..\external\ libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar"
+    os.system("java " + classpath + " addLogDatabase " + name + " " + datetime + " " + str(not valid))
     return;
 
 def take_pic(ip, port):
@@ -86,7 +88,7 @@ def receive_pic():
     return;
 
 def timestamp():
-    timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H:%M:%S")
+    timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     return timestamp;
 
 if __name__ == "__main__":
