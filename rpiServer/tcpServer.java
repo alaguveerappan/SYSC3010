@@ -12,8 +12,10 @@ public class tcpServer {
 	private ObjectInputStream inStream = null;
 	private FileOutputStream outStream = null;
 	
+	// this is the port that is used to send and receive 
+	// data between the server and the client
 	private int port = 4051;
-
+	
 	public tcpServer() {
 
 	}
