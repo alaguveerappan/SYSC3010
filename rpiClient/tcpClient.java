@@ -12,7 +12,10 @@ public class tcpClient {
 	private FileEvent fileEvent = null;
 	private ObjectOutputStream outStream = null;
 	
-	private String address = "192.168.43.200";
+	// IP address of the server on the other Raspberry Pi 
+	private String address = "192.168.43.200"; 
+	// This is the port that is used to send and receive 
+	// data between the server and the client
 	private int port = 4051;
 
 	public tcpClient(String name) {
@@ -22,7 +25,7 @@ public class tcpClient {
 	// Make a Connection with Server before starting to send anything
 
 	public void makeConnection() {
-		// make a socket, output stream and try connecting to the server
+		// make a socket, output stream, and try connecting to the server
 		while (!connection) {
 			try {
 				socket = new Socket(address, port);
@@ -70,7 +73,7 @@ public class tcpClient {
 				fileEvent.setValid("No");
 			}
 		} else {
-			System.out.println("Path does not exists.");
+			System.out.println("Path does not exist.");
 			fileEvent.setValid("No");
 		}
 		// Start sending the data byte array
