@@ -1,9 +1,6 @@
 import com.mongodb.MongoClient;
 import com.mongodb.client.*;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.bson.Document;
 
 /*
