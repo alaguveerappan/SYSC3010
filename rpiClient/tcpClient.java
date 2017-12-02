@@ -13,7 +13,7 @@ public class tcpClient {
 	private ObjectOutputStream outStream = null;
 	
 	private String address = "192.168.43.200";
-	private int port = 5050;
+	private int port = 4051;
 
 	public tcpClient(String name) {
 		clientPath = clientPath + name;
