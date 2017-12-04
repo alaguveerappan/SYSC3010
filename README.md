@@ -31,18 +31,18 @@ Compiling database java programs from command line
 
 ## Running programs
 * For Client Main
-`cd Documents/SYSC3010/SYSC3010/rpiClient`
-`python main.py port`
+ * `cd Documents/SYSC3010/SYSC3010/rpiClient`
+ * `python main.py port`
 
-Example:
-`python main.py 3060`
+ * Example:
+   * `python main.py 3060`
 
 * For Server Main
-`cd Documents/SYSC3010/SYSC3010/rpiServer`
-`python main.py arduinoSerial Baudrate client_ip_addr port db_port`
+ * `cd Documents/SYSC3010/SYSC3010/rpiServer`
+ * `python main.py arduinoSerial Baudrate client_ip_addr port db_port`
 
-Example:
-`python main.py 0 9600 192.168.43.37 3060 27017`
+ * Example:
+   * `python main.py 0 9600 192.168.43.37 3060 27017`
 
 ## Troubleshooting
 ### Raspberry Pi Server
