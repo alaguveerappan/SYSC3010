@@ -13,8 +13,8 @@ Entrance Security System with RPI's and Arduino's
 - [x] Server
 - [x] Client
 - [x] Integrating the database with existing components
-- [] Android App
-- [] Comments :P
+- [x] Android App
+- [x] Comments
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Entrance Security System with RPI's and Arduino's
 * Java: Install `java-sdk8`
 
 ## Useful Command
-
+Compiling database java programs from command line
 * `javac -classpath .:../external\ libraries/java-json.jar:..\external\ libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar addLogDatabase.java`
 * `java -classpath .:../external\ libraries/java-json.jar:..\external\ libraries/gson-2.8.2.jar:../external\ libraries/mongo-java-driver-3.5.0.jar addLogDatabase`
 
@@ -54,4 +54,5 @@ Entrance Security System with RPI's and Arduino's
 
 ### Database
 * If running `mongod` from the command line does not work, run `sudo
-  systemctl stop mongodb`, then run `mongod` again
+  systemctl stop mongodb` or `sudo systemctl restart mongodb`, then run
+  `mongod` again
