@@ -10,6 +10,13 @@ import org.bson.Document;
  */
 public class addLogDatabase {
 
+	/*
+	 * Main arguments:
+	 * 	Name = name of user
+	 * 	DateTime = day and time of attempted entry
+	 * 	Valid = if entry permitted or not
+	 */
+
 	public static void main( String args[] ) {
 		MongoClient mongoClient = new MongoClient();
 		MongoDatabase db = mongoClient.getDatabase("security");
