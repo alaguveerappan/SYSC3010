@@ -40,12 +40,13 @@ public class addUserDatabase {
 	pinCollect.insertOne(validPin);
 
 	for (Document pinDocument : pinIterator) {
+		if (pinDocument.get("name") != null) {
+			System.out.println("Name: " + pinDocument.get("name"));
+		}
 		if (pinDocument.get("pin") != null) {
-			System.out.println(pinDocument.get("pin"));
+			System.out.println("Pin: " + pinDocument.get("pin"));
 		}
-        	if (pinDocument.get("name") != null) {
-			System.out.println(pinDocument.get("name"));
-		}
+        	
 	}
 
 	mongoClient.close();
