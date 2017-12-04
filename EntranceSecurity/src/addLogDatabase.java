@@ -42,11 +42,11 @@ public class addLogDatabase {
 		FindIterable<Document> historyJson = historyCollect.find();
 		for (Document historyDoc : historyJson) {
             		if (historyDoc.get("name") != null) {
-				System.out.println(historyDoc.get("name"));
+				System.out.println("Name: " + historyDoc.get("name"));
 			}
 
 			if (historyDoc.get("dateTime") != null) {
-               			 System.out.println(historyDoc.get("dateTime"));
+               			 System.out.println("Date and time: " + historyDoc.get("dateTime"));
 			}
 			if (historyDoc.get("entry") != null) {
 				System.out.println("Entry permitted: " + historyDoc.get("entry"));
