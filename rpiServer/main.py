@@ -8,7 +8,7 @@ import socket
 import os
 import sys
 
-# taking in port number and baudrate for arduino from the main arguements
+# take in port number and baudrate for arduino from the main arguements
 ser = serial.Serial("/dev/ttyACM"+str(sys.argv[1]), int(sys.argv[2]))
 
 def main():
