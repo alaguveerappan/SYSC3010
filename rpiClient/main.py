@@ -7,7 +7,7 @@ import socket
 import sys
 
 sock = socket.socket()
-# taking in port numberas a main argument
+# take in port numbers as main argument
 sock.bind(('', int(sys.argv[1])))
 
 """ Main """

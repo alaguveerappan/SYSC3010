@@ -6,8 +6,8 @@ class motionSensor:
         GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
         # set GPIO 4 as a input pin so the motion sensor can be connected
-        #     to that pin and could be used to get signals on whether motion
-        #     is being detected or not
+        # to that pin and could be used to get signals on whether motion
+        # is being detected or not
         GPIO.setup(4,GPIO.IN)
         sensed = False
 

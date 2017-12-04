@@ -12,7 +12,7 @@ public class FileEvent implements Serializable {
 	
 	private String valid;
 	
-	// Sender and recevier need to have the same serial Version UID 
+	// Sender and receiver need to have the same serial Version UID 
 	// if not the transfer will not happen
 	private static final long serialVersionUID = 42L;
 	
