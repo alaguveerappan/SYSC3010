@@ -260,6 +260,7 @@ void loop() {
     lcdUnlockedMessage();
     motor -> motorOpenAndClose();
     unlocked = false; // set unlocked back to false for the next cycle
+    //failCount = 0;
   }
   else {
     lcdIncorrectPinMessage();
@@ -267,8 +268,9 @@ void loop() {
     failCount++; // increment the number of times that the PIN was entered incorrectly
   }
   
+  delay(2000);
   // if the server sent back a '5' and the failCount reached 5, time out
-  if (Serial.read() == '5' && failCount == 5) { 
+  if (Serial.read() == '5' && failCount >= 5) { 
     lcdTimedOutMessage();
     delay(10000); // time out for 10 seconds
     failCount = 0; // reset the failCount back to 0 for the next cycle
